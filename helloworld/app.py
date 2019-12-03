@@ -25,12 +25,56 @@ def upload():
 
 
 @app.route('/show', methods = ['POST'])  
-def show():  
+def show(): 
+
+    conn = cx_Oracle.connect('oracle/db@localhost/XE')
+    cur=conn.cursor()
+
     if request.method == 'POST':  
         f = request.files['file']  
         f.save(f.filename)
-        data=process(f.filename)
-        load = json.loads(data)
+        data, arr=process(f.filename)
+        print(type(arr))
+        
+
+        for line in arr:
+            subject = line["SUBJECT"]
+            day = line["DAY"]   
+            timeS = line["START"]   
+            timeE = line["END"]   
+            format=line["FORMAT"]
+
+            x=timeS.split('.')
+            y=timeE.split('.')
+
+            time_start_h=x[0]
+            time_start_m=x[1]
+            time_end_h=y[0]
+            time_end_m=y[1]
+
+
+            cur.execute('select schedule_id from schedule')
+
+            count=0
+
+            row = cur.fetchone()
+            if row == None:
+                print("There are no results for this query")
+                count=count+1;
+            else:
+                cur.execute('select MAX(schedule_id)from schedule')    
+                for line in cur:
+                    count = line[0]+1
+
+            cur.execute(f"""insert into schedule (schedule_id,subject,day,time_start_h,time_start_m,time_end_h,time_end_m,format) 
+            values ({count},'{subject}','{day}',{time_start_h},{time_start_m},{time_end_h},{time_end_m},'{format}')""");
+
+            cur.execute('commit')  
+             
+
+        cur.close()
+        conn.close()
+        #load = json.loads(data)
         return render_template("timetable.html", data=data) 
      
 @app.route('/insert', methods = ['POST'])  
@@ -44,6 +88,7 @@ def insert():
         day = request.form['day']   
         timeS = request.form['time_start'] 
         timeE = request.form['time_end'] 
+        
 
         x=timeS.split(':')
         y=timeE.split(':')
@@ -797,5 +842,5 @@ def process(f):
 
     data=json.dumps(arr, indent = 5);
     
-    return data;
+    return data, arr;
 
