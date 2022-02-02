@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static',filename='timetable.css') }}">
+
+  <style media="screen">
+  </style>
+
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+
+<body>
+
+  <div class="input">
+
+    <form class="" action="/insert" method="post" enctype="multipart/form-data">
+
+
+
+      <p>SUBJECT
+
+        <input id="timetable" type="text" value="" name="subject">
+
+
+
+
+        DAY
+
+        <select id="day" name="day">
+          <option value="SUN">SUN</option>
+          <option value="MON">MON</option>
+          <option value="TUE">TUE</option>
+          <option value="WED">WED</option>
+          <option value="THUR">THUR</option>
+          <option value="FRI">FRI</option>
+          <option value="SAT">SAT</option>
+        </select>
+
+
+        START TIME
+
+        <input id="time_start" type="time" name="time_start">
+
+
+        END TIME
+
+        <input id="time_end" type="time" name="time_end">
+
+
+
+  
+
+          <input type="submit" id="add" onClick="myFunction()" style="width:100px;height:20px;" name="button"
+          value="Add">
+
+      </p>
+
+      </form>
+
+      <input type="button" id="convert" value="Convert">
+
+  </div>
+
+  <form action="/show" method="post" enctype="multipart/form-data">
+    <input type="file" id="pdf-upload" name="file" />
+    <input type="submit" id="upload" value="Upload">
+  </form>
+
+  <hr/>
+<canvas id="canvas" style="position: absolute; top:1000px;height: 1000px;width: 100%;"></canvas>
+
+
+
+
+  <div class="timetable">
+
+    <div class="DAY">
+
+      <div id="MONDAY">
+
+        <p>MON</p>
+
+      </div>
+
+      <div id="TUESDAY">
+
+        <p>TUE</p>
+
+      </div>
+
+      <div id="WEDNESDAY">
+        <p>WED</p>
+      </div>
+
+      <div id="THURSDAY">
+        <p>THUR</p>
+      </div>
+
+      <div id="FRIDAY">
+        <p>FRI</p>
+      </div>
+
+      <div id="SATURDAY">
+        <p>SAT</p>
+      </div>
+
+      <div id="SUNDAY">
+        <p>SUN</p>
+      </div>
+
+    </div>
+
+    <div class="TIME">
+
+      <div id="seven">
+
+        <p>7:00</p>
+
+      </div>
+
+      <div id="sevenhalf">
+
+        <p>7:30</p>
+
+      </div>
+
+      <div id="eight">
+
+        <p>8:00</p>
+
+      </div>
+
+      <div id="eighthalf">
+
+        <p>8:30</p>
+
+      </div>
+
+      <div id="nine">
+        <p>9:00</p>
+      </div>
+
+      <div id="ninehalf">
+        <p>9:30</p>
+      </div>
+
+      <div id="ten">
+        <p>10:00</p>
+      </div>
+
+      <div id="tenhalf">
+        <p>10:30</p>
+      </div>
+
+      <div id="eleven">
+        <p>11:00</p>
+      </div>
+
+      <div id="elevenhalf">
+        <p>11:30</p>
+      </div>
+
+      <div id="twelve">
+        <p>12:00</p>
+      </div>
+
+      <div id="twelvehalf">
+        <p>12:30</p>
+      </div>
+
+      <div id="thirteen">
+        <p>13:00</p>
+      </div>
+
+      <div id="thirteenhalf">
+        <p>13:30</p>
+      </div>
+
+      <div id="fourteen">
+        <p>14:00</p>
+      </div>
+
+      <div id="fourteenhalf">
+        <p>14:30</p>
+      </div>
+
+      <div id="fifthteen">
+        <p>15:00</p>
+      </div>
+
+      <div id="fifthteenhalf">
+        <p>15:30</p>
+      </div>
+
+      <div id="sixthteen">
+        <p>16:00</p>
+      </div>
+
+      <div id="sixthteenhalf">
+        <p>16:00</p>
+      </div>
+
+      <div id="seventeen">
+        <p>17:00</p>
+      </div>
+
+      <div id="seventeenhalf">
+        <p>17:30</p>
+      </div>
+
+      <div id="eightteen">
+        <p>18:00</p>
+      </div>
+
+      <div id="eightteenhalf">
+        <p>18:30</p>
+      </div>
+
+      <div id="nineteen">
+        <p>19:00</p>
+      </div>
+
+      <div id="nineteenhalf">
+        <p>19:30</p>
+      </div>
+
+      <div id="twenty">
+        <p>20:00</p>
+      </div>
+
+      <div id="twentyhalf">
+        <p>20:30</p>
+      </div>
+
+      <div id="twentyone">
+        <p>21:00</p>
+      </div>
+
+      <div id="twentyonehalf">
+        <p>21:30</p>
+      </div>
+
+      <div id="twentytwo">
+        <p>22:00</p>
+      </div>
+
+      <div id="twentytwohalf">
+        <p>22:30</p>
+      </div>
+
+
+    </div>
+
+
+
+    <div id="MON">
+
+
+    </div>
+
+    <div id="TUE">
+
+    </div>
+
+    <div id="WED">
+
+    </div>
+
+    <div id="THUR">
+
+    </div>
+
+    <div id="FRI">
+
+    </div>
+
+    <div id="SAT">
+
+    </div>
+
+    <div id="SUN">
+
+    </div>
+
+  </div>
+
+
+
+
+  <div id="ELEMENT">
+
+    <ul id="SUBJECTELEMENT">
+
+
+    </ul>
+
+  </div>
+
+  <script>
+
+
+
+
+
+
+
+    document.getElementById("convert").addEventListener("click", function () {
+      // var file_to_read = document.getElementById("get_the_file").files[0];
+      //var fileread = new FileReader();
+      //fileread.onload = function(e) {
+      // var content = e.target.result;
+      //  console.log(content);
+
+      //var content =document.getElementById("data");
+
+      //var data = JSON.parse(content); // Array of Objects.
+
+      // You can index every object
+      
+    var info = { data};
+
+
+    var array = [];
+
+    var info = JSON.stringify(info);
+
+    var data = JSON.parse(info);
+
+    //var data=info;
+
+
+
+    alert(data.length);
+
+
+    
+
+    for (var i = 0; i < data.length; i++) {
+
+      
+
+      var subject = data[i].SUBJECT;
+
+      var daychoose = data[i].DAY;
+
+      var time_start = data[i].START;
+
+      var time_end = data[i].END;
+
+      var format = data[i].FORMAT;
+
+      var period = time_start - time_end;
+      var width = period * 60;
+
+      //starttime
+      var fields = time_start.split('.');
+      var hour = parseInt(fields[0]);
+
+      if (format == "PM") {
+        hour = hour + 12;
+      }
+
+      var minute = parseInt(fields[1]);
+      var masa = (hour * 60) + minute;
+      var button;
+
+
+
+
+
+      //endtime
+      var fields1 = time_end.split('.');
+      var hour1 = parseInt(fields1[0]);
+
+      if (format == "PM") {
+        hour1 = hour1 + 12;
+      }
+
+      var minute1 = parseInt(fields1[1]);
+      var masa1 = (hour1 * 60) + minute1;
+
+
+      //period of subject
+      var period = ((masa1 - masa) / 60) * 60;
+
+      var periodtext = period.toString();
+
+      //width of subject
+      var height = periodtext + "px";
+
+
+      //starttime aka top width
+      var topcal = ((masa - 420) / 60) * 60;
+      var toptext = topcal.toString();
+      var top = toptext + "px";
+
+
+      
+
+    (function (x)
+    {
+
+      if (masa >= 420 && masa <= 1350 && masa1 >= 420 && masa1 <= 1350) {
+
+
+        if (daychoose == "MON") {
+
+
+
+          var div = document.createElement("div");
+          div.style.position = "absolute";
+          div.style.top = top;
+          div.style.width = "100%";
+          div.style.height = height;
+          div.style.background = "blue";
+          div.style.color = "white";
+          div.innerHTML = subject;
+          div.setAttribute("id",x);
+
+
+
+          var div1 = document.createElement("LI");
+          button = document.createElement("BUTTON");
+          div1.style.top = "5px";
+          div1.style.width = "90%";
+          div1.style.height = "20px";
+          div1.style.background = "grey";
+          div1.style.color = "black";
+          div1.innerHTML = subject;
+          div1.setAttribute("id", x);
+
+          button.style.position = "absolute";
+          button.style.left = "80%";
+          button.style.width = "20%";
+          button.style.height = "20px";
+          button.setAttribute("id", x);
+          button.id=x;
+          button.value = x;
+
+          button.onclick = function () {
+            document.getElementById(this.id).remove();
+            document.getElementById(this.id).remove();
+          };
+          button.innerHTML ="Remove";
+
+
+          div1.appendChild(button);
+
+          document.getElementById('MON').appendChild(div);
+          document.getElementById('SUBJECTELEMENT').appendChild(div1);
+
+
+
+
+
+
+        }
+        else if (daychoose == "TUE") {
+
+          var div = document.createElement("div");
+          div.style.position = "absolute";
+          div.style.top = top;
+          div.style.width = "100%";
+          div.style.height = height;
+          div.style.background = "blue";
+          div.style.color = "white";
+          div.innerHTML = subject;
+          div.setAttribute("id", x);
+
+
+
+          var div1 = document.createElement("LI");
+          button = document.createElement("BUTTON");
+          div1.style.top = "5px";
+          div1.style.width = "90%";
+          div1.style.height = "20px";
+          div1.style.background = "grey";
+          div1.style.color = "black";
+          div1.innerHTML = subject;
+          div1.setAttribute("id", x);
+
+          button.style.position = "absolute";
+          button.style.left = "80%";
+          button.style.width = "20%";
+          button.style.height = "20px";
+          button.id = x;
+          button.value = x;
+
+          button.onclick = function () {
+            document.getElementById(this.id).remove();
+            document.getElementById(this.id).remove();
+          };
+          button.innerHTML = "Remove";
+
+
+          div1.appendChild(button);
+
+          document.getElementById('TUE').appendChild(div);
+          document.getElementById('SUBJECTELEMENT').appendChild(div1);
+
+
+
+        }
+        else if (daychoose == "WED") {
+
+          var div = document.createElement("div");
+          div.style.position = "absolute";
+          div.style.top = top;
+          div.style.width = "100%";
+          div.style.height = height;
+          div.style.background = "blue";
+          div.style.color = "white";
+          div.innerHTML = subject;
+          div.setAttribute("id", x);
+
+
+
+          var div1 = document.createElement("LI");
+          button = document.createElement("BUTTON");
+          div1.style.top = "5px";
+          div1.style.width = "90%";
+          div1.style.height = "20px";
+          div1.style.background = "grey";
+          div1.style.color = "black";
+          div1.innerHTML = subject;
+          div1.setAttribute("id", x);
+
+          button.style.position = "absolute";
+          button.style.left = "80%";
+          button.style.width = "20%";
+          button.style.height = "20px";
+          button.id = x;
+          button.value = x;
+
+          button.onclick = function () {
+            document.getElementById(this.id).remove();
+            document.getElementById(this.id).remove();
+          };
+          button.innerHTML = "Remove";
+
+
+          div1.appendChild(button);
+
+          document.getElementById('WED').appendChild(div);
+          document.getElementById('SUBJECTELEMENT').appendChild(div1);
+
+
+
+
+        }
+        else if (daychoose == "THUR") {
+
+          var div = document.createElement("div");
+          div.style.position = "absolute";
+          div.style.top = top;
+          div.style.width = "100%";
+          div.style.height = height;
+          div.style.background = "blue";
+          div.style.color = "white";
+          div.innerHTML = subject;
+          div.setAttribute("id", x);
+
+
+
+          var div1 = document.createElement("LI");
+          button = document.createElement("BUTTON");
+          div1.style.top = "5px";
+          div1.style.width = "90%";
+          div1.style.height = "20px";
+          div1.style.background = "grey";
+          div1.style.color = "black";
+          div1.innerHTML = subject;
+          div1.setAttribute("id", x);
+
+          button.style.position = "absolute";
+          button.style.left = "80%";
+          button.style.width = "20%";
+          button.style.height = "20px";
+          button.id = x;
+          button.value = x;
+
+          button.onclick = function () {
+            document.getElementById(this.id).remove();
+            document.getElementById(this.id).remove();
+          };
+          button.innerHTML = "Remove";
+
+
+          div1.appendChild(button);
+
+          document.getElementById('THUR').appendChild(div);
+          document.getElementById('SUBJECTELEMENT').appendChild(div1);
+
+
+
+
+        }
+        else if (daychoose == "FRI") {
+
+          var div = document.createElement("div");
+          div.style.position = "absolute";
+          div.style.top = top;
+          div.style.width = "100%";
+          div.style.height = height;
+          div.style.background = "blue";
+          div.style.color = "white";
+          div.innerHTML = subject;
+          div.setAttribute("id", x);
+
+
+
+          var div1 = document.createElement("LI");
+          button = document.createElement("BUTTON");
+          div1.style.top = "5px";
+          div1.style.width = "90%";
+          div1.style.height = "20px";
+          div1.style.background = "grey";
+          div1.style.color = "black";
+          div1.innerHTML = subject;
+          div1.setAttribute("id", x);
+
+          button.style.position = "absolute";
+          button.style.left = "80%";
+          button.style.width = "20%";
+          button.style.height = "20px";
+          button.id = x;
+          button.value = x;
+
+          button.onclick = function () {
+            document.getElementById(this.id).remove();
+            document.getElementById(this.id).remove();
+          };
+          button.innerHTML = "Remove";
+
+
+          div1.appendChild(button);
+
+          document.getElementById('FRI').appendChild(div);
+          document.getElementById('SUBJECTELEMENT').appendChild(div1);
+
+
+
+
+        }
+        else if (daychoose == "SAT") {
+
+          var div = document.createElement("div");
+          div.style.position = "absolute";
+          div.style.top = top;
+          div.style.width = "100%";
+          div.style.height = height;
+          div.style.background = "blue";
+          div.style.color = "white";
+          div.innerHTML = subject;
+          div.setAttribute("id", x);
+
+
+
+          var div1 = document.createElement("LI");
+          button = document.createElement("BUTTON");
+          div1.style.top = "5px";
+          div1.style.width = "90%";
+          div1.style.height = "20px";
+          div1.style.background = "grey";
+          div1.style.color = "black";
+          div1.innerHTML = subject;
+          div1.setAttribute("id", x);
+
+          button.style.position = "absolute";
+          button.style.left = "80%";
+          button.style.width = "20%";
+          button.style.height = "20px";
+          button.id = x;
+          button.value = x;
+
+          button.onclick = function () {
+            document.getElementById(this.id).remove();
+            document.getElementById(this.id).remove();
+          };
+          button.innerHTML = "Remove";
+
+
+          div1.appendChild(button);
+
+          document.getElementById('SAT').appendChild(div);
+          document.getElementById('SUBJECTELEMENT').appendChild(div1);
+
+
+
+
+        }
+        else if (daychoose == "SUN") {
+
+          var div = document.createElement("div");
+          div.style.position = "absolute";
+          div.style.top = top;
+          div.style.width = "100%";
+          div.style.height = height;
+          div.style.background = "blue";
+          div.style.color = "white";
+          div.innerHTML = subject;
+          div.setAttribute("id", x);
+
+
+
+          var div1 = document.createElement("LI");
+          button = document.createElement("BUTTON");
+          div1.style.top = "5px";
+          div1.style.width = "90%";
+          div1.style.height = "20px";
+          div1.style.background = "grey";
+          div1.style.color = "black";
+          div1.innerHTML = subject;
+          div1.setAttribute("id", x);
+
+          button.style.position = "absolute";
+          button.style.left = "80%";
+          button.style.width = "20%";
+          button.style.height = "20px";
+          button.id = x;
+          button.value = x;
+
+          button.onclick = function () {
+            document.getElementById(this.id).remove();
+            document.getElementById(this.id).remove();
+          };
+          button.innerHTML = "Remove";
+
+
+          div1.appendChild(button);
+
+          document.getElementById('SUN').appendChild(div);
+          document.getElementById('SUBJECTELEMENT').appendChild(div1);
+
+
+
+
+        }
+
+      }
+    }).call(this,i)
+    }
+
+ });
+
+ 
+ 
+</script>
+<script type="text/javascript"src="{{ url_for('static', filename='timetable.js') }}"></script>
+
+
+
+</html>
