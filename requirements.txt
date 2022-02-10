@@ -1,0 +1,8 @@
+textract==1.6.4
+Wand==0.6.7
+Flask_Cors==3.0.10
+pytesseract==0.3.8
+tika==1.24
+Flask==2.0.1
+numpy==1.21.2
+Pillow==8.3.2

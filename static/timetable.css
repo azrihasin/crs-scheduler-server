@@ -1,0 +1,442 @@
+.timetable{
+  top:100px;
+  position:absolute;
+  width:63%;
+  height:960px;
+  background:yellow;
+  padding-left: 1%;
+
+
+}
+
+
+
+.TIME{
+  position:relative;
+  display: inline-block;
+  top:50px;
+
+  width:15%;
+  height:960px;
+  background:grey;
+}
+
+#ELEMENT{
+  position:absolute;
+  top: 100px;
+  height: 960px;
+  width: 40%;
+  left: 65%;
+
+  border:1px solid black;
+
+}
+
+#SUN{
+  position:relative;
+  display: inline-block;
+  top:50px;
+  width:11%;
+  height:960px;
+  background:red;
+}
+
+#MON{
+  position:relative;
+  display: inline-block;
+  top:50px;
+  width:11%;
+  height:960px;
+  background:black;
+}
+
+#TUE{
+  position:relative;
+  display: inline-block;
+  top:50px;
+  width:11%;
+  height:960px;
+  background:red;
+}
+
+#WED{
+  position:relative;
+  display: inline-block;
+  top:50px;
+  width:11%;
+  height:960px;
+  background:black;
+}
+
+#THUR{
+  position:relative;
+  display: inline-block;
+  top:50px;
+  width:11%;
+  height:960px;
+  background:red;
+}
+
+#FRI{
+  position:relative;
+  display: inline-block;
+  top:50px;
+  width:11%;
+  height:960px;
+  background:black;
+}
+
+#SAT{
+  position:relative;
+  display: inline-block;
+  top:50px;
+  width:11%;
+  height:960px;
+
+  background:red;
+}
+
+
+#seven{
+  position:absolute;
+  width:100%;
+  top:0px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#sevenhalf{
+  position:absolute;
+  width:100%;
+  top:30px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#eight{
+  position:absolute;
+  width:100%;
+  top:60px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#eighthalf{
+  position:absolute;
+  width:100%;
+  top:90px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#nine{
+  position:absolute;
+  width:100%;
+  top:120px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#ninehalf{
+  position:absolute;
+  width:100%;
+  top:150px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#ten{
+  position:absolute;
+  width:100%;
+  top:180px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#tenhalf{
+  position:absolute;
+  width:100%;
+  top:210px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#eleven{
+  position:absolute;
+  width:100%;
+  top:240px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#elevenhalf{
+  position:absolute;
+  width:100%;
+  top:270px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#twelve{
+  position:absolute;
+  width:100%;
+  top:300px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+#twelvehalf{
+  position:absolute;
+  width:100%;
+  top:330px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#thirteen{
+  position:absolute;
+  width:100%;
+  top:360px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+#thirteenhalf{
+  position:absolute;
+  width:100%;
+  top:390px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#fourteen{
+  position:absolute;
+  width:100%;
+  top:420px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#fourteenhalf{
+  position:absolute;
+  width:100%;
+  top:450px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#fifthteen{
+  position:absolute;
+  width:100%;
+  top:480px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+#fifthteenhalf{
+  position:absolute;
+  width:100%;
+  top:510px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#sixthteen{
+  position:absolute;
+  width:100%;
+  top:540px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+#sixthteenhalf{
+  position:absolute;
+  width:100%;
+  top:570px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#seventeen{
+  position:absolute;
+  width:100%;
+  top:600px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+#seventeenhalf{
+  position:absolute;
+  width:100%;
+  top:630px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#eightteen{
+  position:absolute;
+  width:100%;
+  top:660px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+#eightteenhalf{
+  position:absolute;
+  width:100%;
+  top:690px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#nineteen{
+  position:absolute;
+  width:100%;
+  top:720px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+#nineteenhalf{
+  position:absolute;
+  width:100%;
+  top:750px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#twenty{
+  position:absolute;
+  width:100%;
+  top:780px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+#twentyhalf{
+  position:absolute;
+  width:100%;
+  top:810px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#twentyone{
+  position:absolute;
+  width:100%;
+  top:840px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#twentyonehalf{
+  position:absolute;
+  width:100%;
+  top:870px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+#twentytwo{
+  position:absolute;
+  width:100%;
+  top:900px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+#twentytwohalf{
+  position:absolute;
+  width:100%;
+  top:930px;
+  height:30px;
+  border:1px solid black;
+  background:green;
+}
+
+
+
+#MONDAY{
+  position:absolute;
+  display: inline-block;
+  left: 18%;
+  width:10%;
+  height:100px;
+  background:yellow;
+}
+
+#TUESDAY{
+  position:absolute;
+  display: inline-block;
+  left: 29%;
+  width:10%;
+  height:100px;
+  background:yellow;
+}
+
+#WEDNESDAY{
+  position:absolute;
+  display: inline-block;
+  left: 40%;
+  width:10%;
+  height:100px;
+  background:yellow;
+}
+
+#THURSDAY{
+  position:absolute;
+  display: inline-block;
+  left: 51%;
+  width:10%;
+  height:100px;
+  background:yellow;
+}
+
+#FRIDAY{
+  position:absolute;
+  display: inline-block;
+  left: 63%;
+  width:10%;
+  height:100px;
+  background:yellow;
+}
+
+#SATURDAY{
+  position:absolute;
+  display: inline-block;
+  left: 74%;
+  width:10%;
+  height:100px;
+  background:yellow;
+}
+
+#SUNDAY{
+  position:absolute;
+  display: inline-block;
+  left: 85%;
+  width:10%;
+  height:100px;
+  background:yellow;
+}
